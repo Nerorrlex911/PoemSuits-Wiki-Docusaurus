@@ -47,7 +47,6 @@ jobs:
         if-no-files-found: error
   # Release
   release:
-    name: Release PDF
     needs: [ pdf ]
     runs-on: ubuntu-latest
     steps:
