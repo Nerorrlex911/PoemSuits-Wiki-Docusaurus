@@ -38,9 +38,10 @@ jobs:
     # 安装中文字体
     - name: Install Font
       run: |
-        pwd
-        sudo apt install ttf-wqy-zenhei
-        sudo apt install fonts-wqy-microhei
+        cp /home/runner/work/NeigeItems-Wiki-Docusaurus/NeigeItems-Wiki-Docusaurus/font/SIMHEI.TTF /usr/share/fonts/
+        sudo mkfontscale
+        sudo mkfontdir
+        sudo fc-cache -fv
     # 睡会儿, 等GitPage部署完成
     - name: Sleep for 120 seconds
       run: sleep 120s
