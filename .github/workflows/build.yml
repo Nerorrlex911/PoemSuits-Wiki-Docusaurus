@@ -28,15 +28,13 @@ jobs:
     needs: [ gitpage ]
     runs-on: ubuntu-latest
     steps:
-    # 安装PDF转换前置Prince
-    - name: Install Prince
-      run: |
-        curl https://www.princexml.com/download/prince-14.2-linux-generic-x86_64.tar.gz -O
-        tar zxf prince-14.2-linux-generic-x86_64.tar.gz
-        cd prince-14.2-linux-generic-x86_64
-        yes "" | sudo ./install.sh
+    # 拉取代码
+    - name: Checkout
+      uses: actions/checkout@master
+      with:
+        persist-credentials: false
     # 安装中文字体
-    - name: test
+    - name: Install SIMHEI Font
       run: |
         cp ${{ github.workspace }}/font/SIMHEI.TTF /usr/share/fonts/
         sudo apt-get install ttf-mscorefonts-installer
@@ -44,6 +42,13 @@ jobs:
         sudo mkfontscale
         sudo mkfontdir
         sudo fc-cache -fv
+    # 安装PDF转换前置Prince
+    - name: Install Prince
+      run: |
+        curl https://www.princexml.com/download/prince-14.2-linux-generic-x86_64.tar.gz -O
+        tar zxf prince-14.2-linux-generic-x86_64.tar.gz
+        cd prince-14.2-linux-generic-x86_64
+        yes "" | sudo ./install.sh
     # 睡会儿, 等GitPage部署完成
     - name: Sleep for 120 seconds
       run: sleep 120s
