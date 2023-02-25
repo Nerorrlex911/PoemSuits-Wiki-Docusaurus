@@ -8,6 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'NeigeItems',
   tagline: '万能随机物品库',
+  // 网站图标
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -41,6 +42,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
+          routeBasePath: '/',
           editUrl:
             'https://github.com/Neige7/NeigeItems-Wiki-Docusaurus/blob/main'
         },
@@ -55,7 +57,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
+      // 上边栏
       navbar: {
         title: 'NeigeItems',
         hideOnScroll: false,
@@ -77,6 +79,7 @@ const config = {
           },
         ],
       },
+      // 底部链接
       footer: {
         style: 'dark',
         links: [
@@ -112,12 +115,15 @@ const config = {
             ],
           },
         ],
+        // 底部版权信息
         copyright: `Copyright © ${new Date().getFullYear()} Neige, All Rights Reserved.`,
       },
+      // 深浅主题
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      // 颜色随系统切换
       colorMode: {
         respectPrefersColorScheme: true,
       },
