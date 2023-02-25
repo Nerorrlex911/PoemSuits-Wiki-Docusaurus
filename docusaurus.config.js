@@ -31,7 +31,7 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'zh-Hans',
-    locales: ['zh-Hans'],
+    locales: ['zh-Hans', 'en'],
   },
 
   presets: [
@@ -44,6 +44,7 @@ const config = {
           editUrl:
             'https://github.com/Neige7/NeigeItems-Wiki-Docusaurus/blob/main'
         },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css')
         },
@@ -60,10 +61,6 @@ const config = {
         hideOnScroll: false,
         items: [
           {
-            type: 'search',
-            position: 'right',
-          },
-          {
             type: 'doc',
             docId: 'intro',
             position: 'left',
@@ -72,6 +69,10 @@ const config = {
           {
             href: 'https://github.com/Neige7/NeigeItems-Kotlin',
             label: 'GitHub',
+            position: 'right',
+          },
+          {
+            type: 'localeDropdown',
             position: 'right',
           },
         ],
@@ -121,6 +122,19 @@ const config = {
         respectPrefersColorScheme: true,
       },
     }),
+
+  themes:
+    [
+      [
+        require.resolve("@easyops-cn/docusaurus-search-local"),
+        {
+          hashed: true,
+          language: ["en", "zh"],
+          highlightSearchTermsOnTargetPage: true,
+          explicitSearchResultPath: true,
+        },
+      ],
+    ],
 };
 
 module.exports = config;
