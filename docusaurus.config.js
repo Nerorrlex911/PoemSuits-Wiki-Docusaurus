@@ -57,16 +57,21 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      image: 'img/docusaurus-social-card.jpg',
       // 上边栏
       navbar: {
         title: 'NeigeItems',
+        logo: {
+          alt: 'Logo',
+          src: 'img/logo.svg',
+        },
         hideOnScroll: false,
         items: [
           {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: '正文',
+            label: '开始',
           },
           {
             href: 'https://github.com/Neige7/NeigeItems-Kotlin',
