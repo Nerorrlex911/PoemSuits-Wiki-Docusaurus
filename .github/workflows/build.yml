@@ -15,9 +15,9 @@ jobs:
     - name: test
       run: |
         cp ${{ github.workspace }}/font/SIMHEI.TTF /usr/share/fonts/
-        sudo mkfontscale
-        sudo mkfontdir
-        sudo fc-cache -fv
+        mkfontscale
+        mkfontdir
+        fc-cache -fv
       shell: bash
   # 自动部署GitPage
   gitpage:
