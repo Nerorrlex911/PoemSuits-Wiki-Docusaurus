@@ -4,6 +4,16 @@ on:
     branches:
       - main
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    # 安装中文字体
+    - name: test
+      run: |
+        cp ./font/SIMHEI.TTF /usr/share/fonts/
+        sudo mkfontscale
+        sudo mkfontdir
+        sudo fc-cache -fv
   # 自动部署GitPage
   gitpage:
     runs-on: ubuntu-latest
@@ -35,13 +45,6 @@ jobs:
         tar zxf prince-14.2-linux-generic-x86_64.tar.gz
         cd prince-14.2-linux-generic-x86_64
         yes "" | sudo ./install.sh
-    # 安装中文字体
-    - name: Install Font
-      run: |
-        cp /home/runner/work/NeigeItems-Wiki-Docusaurus/NeigeItems-Wiki-Docusaurus/font/SIMHEI.TTF /usr/share/fonts/
-        sudo mkfontscale
-        sudo mkfontdir
-        sudo fc-cache -fv
     # 睡会儿, 等GitPage部署完成
     - name: Sleep for 120 seconds
       run: sleep 120s
