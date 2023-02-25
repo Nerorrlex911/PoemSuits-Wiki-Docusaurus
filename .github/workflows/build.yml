@@ -18,7 +18,6 @@ jobs:
         mkfontscale
         mkfontdir
         fc-cache -fv
-      shell: bash
   # 自动部署GitPage
   gitpage:
     runs-on: ubuntu-latest
