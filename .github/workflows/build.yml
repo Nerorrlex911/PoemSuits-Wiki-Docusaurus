@@ -7,12 +7,14 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout
+      uses: actions/checkout@master
+      with:
+        persist-credentials: false
     # 安装中文字体
     - name: test
       run: |
-        cd ..
-        ls
-        cp ./font/SIMHEI.TTF /usr/share/fonts/
+        cp ${{ github.workspace }}/font/SIMHEI.TTF /usr/share/fonts/
         sudo mkfontscale
         sudo mkfontdir
         sudo fc-cache -fv
