@@ -42,7 +42,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/Neige7/NeigeItems-Wiki-Docusaurus'
+            'https://github.com/Neige7/NeigeItems-Wiki-Docusaurus/blob/main'
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css')
