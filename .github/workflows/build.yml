@@ -1,0 +1,44 @@
+name: Workflow Build
+on:
+  push:
+    branches:
+      - main
+jobs:
+  gitpage:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+      with:
+        persist-credentials: false
+    - name: Install and Build
+      run: |
+        npm install
+        npm run-script build
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: build
+        BUILD_SCRIPT: npm install && npm run build
+  pdf:
+    needs: [ gitpage ]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install Prince
+      run: |
+        curl https://www.princexml.com/download/prince-14.2-linux-generic-x86_64.tar.gz -O
+        tar zxf prince-14.2-linux-generic-x86_64.tar.gz
+        cd prince-14.2-linux-generic-x86_64
+        yes "" | sudo ./install.sh
+
+    - name: Build PDF
+      run: npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/docs/intro/ --output NeigeItems-Wiki.pdf
+
+    - name: Upload results
+      uses: actions/upload-artifact@v3
+      with:
+        name: result
+        path: pdf/NeigeItems-Wiki.pdf
+        if-no-files-found: error
