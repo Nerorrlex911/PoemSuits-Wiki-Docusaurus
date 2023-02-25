@@ -4,22 +4,6 @@ on:
     branches:
       - main
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@master
-      with:
-        persist-credentials: false
-    # 安装中文字体
-    - name: test
-      run: |
-        cp ${{ github.workspace }}/font/SIMHEI.TTF /usr/share/fonts/
-        sudo apt-get install ttf-mscorefonts-installer
-        sudo apt-get install fontconfig
-        sudo mkfontscale
-        sudo mkfontdir
-        sudo fc-cache -fv
   # 自动部署GitPage
   gitpage:
     runs-on: ubuntu-latest
@@ -51,6 +35,15 @@ jobs:
         tar zxf prince-14.2-linux-generic-x86_64.tar.gz
         cd prince-14.2-linux-generic-x86_64
         yes "" | sudo ./install.sh
+    # 安装中文字体
+    - name: test
+      run: |
+        cp ${{ github.workspace }}/font/SIMHEI.TTF /usr/share/fonts/
+        sudo apt-get install ttf-mscorefonts-installer
+        sudo apt-get install fontconfig
+        sudo mkfontscale
+        sudo mkfontdir
+        sudo fc-cache -fv
     # 睡会儿, 等GitPage部署完成
     - name: Sleep for 120 seconds
       run: sleep 120s
