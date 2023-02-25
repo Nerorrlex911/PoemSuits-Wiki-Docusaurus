@@ -34,7 +34,7 @@ jobs:
         yes "" | sudo ./install.sh
 
     - name: Build PDF
-      run: npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/docs
+      run: npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/docs/intro
 
     - name: Upload results
       uses: actions/upload-artifact@v3
