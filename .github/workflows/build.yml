@@ -37,7 +37,7 @@ jobs:
         yes "" | sudo ./install.sh
     # 生成PDF
     - name: Build PDF
-      run: npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/docs/intro --output pdf/NeigeItems-Wiki.pdf
+      run: npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/intro --output pdf/NeigeItems-Wiki.pdf
     # 上传PDF
     - name: Capture Build Artifacts
       uses: actions/upload-artifact@v3
