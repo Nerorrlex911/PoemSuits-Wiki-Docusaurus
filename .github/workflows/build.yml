@@ -4,41 +4,85 @@ on:
     branches:
       - main
 jobs:
+  # 自动部署GitPage
   gitpage:
     runs-on: ubuntu-latest
     steps:
+    # 拉取代码
     - name: Checkout
       uses: actions/checkout@master
       with:
         persist-credentials: false
+    # 编译出静态页面
     - name: Install and Build
-      run: |
-        npm install
-        npm run-script build
+      run: npm install && npm run build
+    # 塞进gh-pages分支(即部署到GitPage)
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
         FOLDER: build
-        BUILD_SCRIPT: npm install && npm run build
+  # 自动生成PDF
   pdf:
     needs: [ gitpage ]
     runs-on: ubuntu-latest
     steps:
+    # 安装PDF转换前置Prince
     - name: Install Prince
       run: |
         curl https://www.princexml.com/download/prince-14.2-linux-generic-x86_64.tar.gz -O
         tar zxf prince-14.2-linux-generic-x86_64.tar.gz
         cd prince-14.2-linux-generic-x86_64
         yes "" | sudo ./install.sh
-
+    # 生成PDF
     - name: Build PDF
       run: npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/docs/intro --output pdf/NeigeItems-Wiki.pdf
-
-    - name: Upload results
+    # 上传PDF
+    - name: Capture Build Artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: result
+        name: Artifacts
         path: pdf/NeigeItems-Wiki.pdf
         if-no-files-found: error
+  # Release
+  release:
+    name: Release PDF
+    needs: [ pdf ]
+    runs-on: ubuntu-latest
+    steps:
+    # 拉取代码
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    # 下载本体
+    - name: Download Content
+      uses: actions/download-artifact@v2
+      with:
+        name: Artifacts
+    # 获取序号
+    - name: Get Project version
+      id: get_version
+      run: |
+        echo "Project version: $GITHUB_RUN_NUMBER"
+        echo "::set-output name=project_version::$GITHUB_RUN_NUMBER"
+      env:
+        project_version: ${{ steps.get_version.outputs.project_version }}
+    # 创建release
+    - name: Create Release
+      id: create-new-release
+      uses: actions/create-release@v1
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      with:
+        tag_name: ${{ steps.get_version.outputs.project_version }}
+        release_name: Release ${{ steps.get_version.outputs.project_version }}
+    # 向release上传NeigeItems-Wiki.pdf
+    - name: Upload PDF file to Release
+      uses: actions/upload-release-asset@v1
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      with:
+        upload_url: ${{ steps.create-new-release.outputs.upload_url }}
+        asset_path: NeigeItems-Wiki.pdf
+        asset_name: NeigeItems-Wiki.pdf
+        asset_content_type: application/zip
