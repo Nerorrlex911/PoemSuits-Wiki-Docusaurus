@@ -15,9 +15,11 @@ jobs:
     - name: test
       run: |
         cp ${{ github.workspace }}/font/SIMHEI.TTF /usr/share/fonts/
-        mkfontscale
-        mkfontdir
-        fc-cache -fv
+        sudo apt-get install ttf-mscorefonts-installer
+        sudo apt-get install fontconfig
+        sudo mkfontscale
+        sudo mkfontdir
+        sudo fc-cache -fv
   # 自动部署GitPage
   gitpage:
     runs-on: ubuntu-latest
