@@ -10,6 +10,7 @@ jobs:
     # 安装中文字体
     - name: test
       run: |
+        cd ..
         ls
         cp ./font/SIMHEI.TTF /usr/share/fonts/
         sudo mkfontscale
