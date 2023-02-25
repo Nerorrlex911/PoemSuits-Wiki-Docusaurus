@@ -35,6 +35,11 @@ jobs:
         tar zxf prince-14.2-linux-generic-x86_64.tar.gz
         cd prince-14.2-linux-generic-x86_64
         yes "" | sudo ./install.sh
+    # 安装中文字体
+    - name: Install Font
+      run: |
+        sudo apt install ttf-wqy-zenhei
+        sudo apt install fonts-wqy-microhei
     # 睡会儿, 等GitPage部署完成
     - name: Sleep for 120 seconds
       run: sleep 120s
