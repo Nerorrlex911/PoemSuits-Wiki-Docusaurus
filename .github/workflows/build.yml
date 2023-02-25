@@ -42,12 +42,15 @@ jobs:
     # 生成PDF
     - name: Build PDF
       run: npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/intro --output pdf/NeigeItems-Wiki.pdf
+    # 生成英文PDF
+    - name: Build PDF
+      run: npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/en/intro --output pdf/NeigeItems-Wiki-English.pdf
     # 上传PDF
     - name: Capture Build Artifacts
       uses: actions/upload-artifact@v3
       with:
         name: Artifacts
-        path: pdf/NeigeItems-Wiki.pdf
+        path: pdf/
         if-no-files-found: error
   # Release
   release:
@@ -88,4 +91,14 @@ jobs:
         upload_url: ${{ steps.create-new-release.outputs.upload_url }}
         asset_path: NeigeItems-Wiki.pdf
         asset_name: NeigeItems-Wiki.pdf
+        asset_content_type: application/zip
+    # 向release上传NeigeItems-Wiki-English.pdf
+    - name: Upload PDF file to Release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create-new-release.outputs.upload_url }}
+        asset_path: NeigeItems-Wiki-English.pdf
+        asset_name: NeigeItems-Wiki-English.pdf
         asset_content_type: application/zip
