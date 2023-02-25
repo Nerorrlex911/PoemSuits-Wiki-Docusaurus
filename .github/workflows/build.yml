@@ -34,11 +34,11 @@ jobs:
         yes "" | sudo ./install.sh
 
     - name: Build PDF
-      run: npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/docs/intro/ --output NeigeItems-Wiki.pdf
+      run: npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/docs/intro/
 
     - name: Upload results
       uses: actions/upload-artifact@v3
       with:
         name: result
-        path: pdf/NeigeItems-Wiki.pdf
+        path: pdf/docusaurus.io-docs.pdf
         if-no-files-found: error
