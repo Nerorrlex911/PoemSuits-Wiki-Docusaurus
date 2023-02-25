@@ -38,6 +38,7 @@ jobs:
     # 安装中文字体
     - name: Install Font
       run: |
+        pwd
         sudo apt install ttf-wqy-zenhei
         sudo apt install fonts-wqy-microhei
     # 睡会儿, 等GitPage部署完成
