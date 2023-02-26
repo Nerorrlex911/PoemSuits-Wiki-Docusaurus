@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Build PDF
-      run: winpty docker run --rm -it -v $(pwd)/pdf:/app/pdf openbayes/docusaurus-prince-pdf -u https://docusaurus.io/docs/
+      run: docker run --rm -v $(pwd)/pdf:/app/pdf openbayes/docusaurus-prince-pdf -u https://docusaurus.io/docs/
 #     # 生成PDF
 #     - name: Build PDF
 #       run: sudo docker run --rm -it -v $(pwd)/pdf:/app/pdf openbayes/docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/intro --output pdf/NeigeItems-Wiki.pdf
