@@ -4,27 +4,28 @@ on:
     branches:
       - main
 jobs:
-  test:
-    runs-on: windows-latest
+  # 自动生成PDF
+  pdf:
+    runs-on: ubuntu-latest
     steps:
-    - name: test1
-      run: |
-        ping baidu.com
-        ping neige7.github.io
+    # 拉取代码
     - name: Checkout
       uses: actions/checkout@master
       with:
         persist-credentials: false
-    # 设置Prince环境变量
-    - name: Setup Windows path
-      uses: myci-actions/append-to-path-windows@2
-      with:
-        path: ${{ github.workspace }}\prince-15.1-win64\bin
-        env-var: Path
-    - name: test
+    # 安装PDF转换前置Prince
+    - name: Install Prince
       run: |
-        npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/intro --output pdf/NeigeItems-Wiki.pdf
-        npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/en/intro --output pdf/NeigeItems-Wiki-English.pdf
+        curl https://www.princexml.com/download/prince-14.2-linux-generic-x86_64.tar.gz -O
+        tar zxf prince-14.2-linux-generic-x86_64.tar.gz
+        cd prince-14.2-linux-generic-x86_64
+        yes "" | sudo ./install.sh
+    # 生成PDF
+    - name: Build PDF
+      run: npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/intro --output pdf/NeigeItems-Wiki.pdf
+    # 生成英文PDF
+    - name: Build PDF
+      run: npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/en/intro --output pdf/NeigeItems-Wiki-English.pdf
     # 上传PDF
     - name: Capture Build Artifacts
       uses: actions/upload-artifact@v3
@@ -32,6 +33,35 @@ jobs:
         name: Artifacts
         path: pdf/
         if-no-files-found: error
+
+#   test:
+#     runs-on: windows-latest
+#     steps:
+#     - name: test1
+#       run: |
+#         ping baidu.com
+#         ping neige7.github.io
+#     - name: Checkout
+#       uses: actions/checkout@master
+#       with:
+#         persist-credentials: false
+#     # 设置Prince环境变量
+#     - name: Setup Windows path
+#       uses: myci-actions/append-to-path-windows@2
+#       with:
+#         path: ${{ github.workspace }}\prince-15.1-win64\bin
+#         env-var: Path
+#     - name: test
+#       run: |
+#         npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/intro --output pdf/NeigeItems-Wiki.pdf
+#         npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/en/intro --output pdf/NeigeItems-Wiki-English.pdf
+#     # 上传PDF
+#     - name: Capture Build Artifacts
+#       uses: actions/upload-artifact@v3
+#       with:
+#         name: Artifacts
+#         path: pdf/
+#         if-no-files-found: error
 #   # 自动部署GitPage
 #   gitpage:
 #     runs-on: ubuntu-latest
