@@ -7,6 +7,10 @@ jobs:
   test:
     runs-on: windows-latest
     steps:
+    - name: test1
+      run: |
+        ping baidu.com
+        ping neige7.github.io
     - name: Checkout
       uses: actions/checkout@master
       with:
