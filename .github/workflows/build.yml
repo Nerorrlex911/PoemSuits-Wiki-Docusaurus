@@ -19,12 +19,8 @@ jobs:
         env-var: Path
     - name: test
       run: |
-        npm install
-        yarn build
-        yarn serve
-        npx docusaurus-prince-pdf -u http://localhost:3000/NeigeItems-Wiki-Docusaurus/intro --output pdf/NeigeItems-Wiki.pdf
-        npx docusaurus-prince-pdf -u http://localhost:3000/NeigeItems-Wiki-Docusaurus/en/intro --output pdf/NeigeItems-Wiki-English.pdf
-        exit /b 1
+        npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/intro --output pdf/NeigeItems-Wiki.pdf
+        npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/en/intro --output pdf/NeigeItems-Wiki-English.pdf
     # 上传PDF
     - name: Capture Build Artifacts
       uses: actions/upload-artifact@v3
