@@ -8,19 +8,21 @@ jobs:
   pdf:
     runs-on: ubuntu-latest
     steps:
-    # 生成PDF
     - name: Build PDF
-      run: sudo docker run --rm -it -v $(pwd)/pdf:/app/pdf openbayes/docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/intro --output pdf/NeigeItems-Wiki.pdf
-    # 生成英文PDF
-    - name: Build PDF
-      run: sudo docker run --rm -it -v $(pwd)/pdf:/app/pdf openbayes/docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/en/intro --output pdf/NeigeItems-Wiki-English.pdf
-    # 上传PDF
-    - name: Capture Build Artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: Artifacts
-        path: pdf/
-        if-no-files-found: error
+      run: docker run --rm -it -v $(pwd)/pdf:/app/pdf openbayes/docusaurus-prince-pdf -u https://docusaurus.io/docs/
+#     # 生成PDF
+#     - name: Build PDF
+#       run: sudo docker run --rm -it -v $(pwd)/pdf:/app/pdf openbayes/docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/intro --output pdf/NeigeItems-Wiki.pdf
+#     # 生成英文PDF
+#     - name: Build PDF
+#       run: sudo docker run --rm -it -v $(pwd)/pdf:/app/pdf openbayes/docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/en/intro --output pdf/NeigeItems-Wiki-English.pdf
+#     # 上传PDF
+#     - name: Capture Build Artifacts
+#       uses: actions/upload-artifact@v3
+#       with:
+#         name: Artifacts
+#         path: pdf/
+#         if-no-files-found: error
 
 #   test:
 #     runs-on: windows-latest
