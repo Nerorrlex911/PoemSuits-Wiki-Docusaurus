@@ -7,15 +7,20 @@ jobs:
   test:
     runs-on: windows-latest
     steps:
-    - name: t1
-      run: npm -v
+    # 拉取代码
     - name: Checkout
       uses: actions/checkout@master
       with:
         persist-credentials: false
-    - name: Install Prince
+    # 拉取环境变量
+    - name: Setup Windows path
+      uses: microsoft/setup-windows-path@v1
+    # 设置Prince环境变量
+    - name: Add prince path to Windows path
       run: |
-        set PATH=%PATH%;"${{ github.workspace }}\prince-15.1-win64\bin";
+        setx path "%PATH%;${{ github.workspace }}\prince-15.1-win64\bin"
+    - name: test
+      run: |
         prince --help
   # 自动部署GitPage
   gitpage:
