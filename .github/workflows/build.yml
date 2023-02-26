@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: Build PDF
       run: |
-        docker run --rm -it -v $(pwd)/pdf:/app/pdf openbayes/docusaurus-prince-pdf bash
+        docker run --rm -v $(pwd)/pdf:/app/pdf openbayes/docusaurus-prince-pdf bash
         apt-get update
         apt-get install -y prince
         exit
