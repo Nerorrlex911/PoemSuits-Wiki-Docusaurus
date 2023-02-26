@@ -11,8 +11,10 @@ jobs:
     - name: Build PDF
       run: |
         docker run --rm -v $(pwd)/pdf:/app/pdf openbayes/docusaurus-prince-pdf bash
-        sudo apt-get update
-        sudo apt-get install -y prince
+        curl https://www.princexml.com/download/prince-14.2-linux-generic-x86_64.tar.gz -O
+        tar zxf prince-14.2-linux-generic-x86_64.tar.gz
+        cd prince-14.2-linux-generic-x86_64
+        yes "" | sudo ./install.sh
         exit
         docker run --rm -v $(pwd)/pdf:/app/pdf openbayes/docusaurus-prince-pdf -u https://docusaurus.io/docs/
 #     # 生成PDF
