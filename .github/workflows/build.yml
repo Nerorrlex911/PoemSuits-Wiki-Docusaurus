@@ -13,6 +13,7 @@ jobs:
         persist-credentials: false
     - name: test
       run: |
+        npm install
         yarn build
         yarn serve
     # 设置Prince环境变量
