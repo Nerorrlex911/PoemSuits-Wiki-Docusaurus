@@ -14,7 +14,7 @@ jobs:
         persist-credentials: false
     # 设置Prince环境变量
     - name: Setup Windows path
-      uses: actions/setup-windows-env@v2
+      uses: microsoft/setup-windows-path@v1
       with:
         path: ${{ github.workspace }}\prince-15.1-win64\bin
     - name: test
