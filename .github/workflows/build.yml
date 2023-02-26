@@ -11,23 +11,20 @@ jobs:
       uses: actions/checkout@master
       with:
         persist-credentials: false
-    - name: test
-      run: |
-        npm install
-        yarn build
-        yarn serve
     # 设置Prince环境变量
     - name: Setup Windows path
       uses: myci-actions/append-to-path-windows@2
       with:
         path: ${{ github.workspace }}\prince-15.1-win64\bin
         env-var: Path
-    # 生成PDF
-    - name: Build PDF
-      run: npx docusaurus-prince-pdf -u http://localhost:3000/NeigeItems-Wiki-Docusaurus/intro --output pdf/NeigeItems-Wiki.pdf
-    # 生成英文PDF
-    - name: Build English PDF
-      run: npx docusaurus-prince-pdf -u http://localhost:3000/NeigeItems-Wiki-Docusaurus/en/intro --output pdf/NeigeItems-Wiki-English.pdf
+    - name: test
+      run: |
+        npm install
+        yarn build
+        yarn serve
+        npx docusaurus-prince-pdf -u http://localhost:3000/NeigeItems-Wiki-Docusaurus/intro --output pdf/NeigeItems-Wiki.pdf
+        npx docusaurus-prince-pdf -u http://localhost:3000/NeigeItems-Wiki-Docusaurus/en/intro --output pdf/NeigeItems-Wiki-English.pdf
+        exit /b 1
     # 上传PDF
     - name: Capture Build Artifacts
       uses: actions/upload-artifact@v3
