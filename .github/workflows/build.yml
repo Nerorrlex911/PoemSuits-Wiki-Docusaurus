@@ -12,7 +12,9 @@ jobs:
       with:
         persist-credentials: false
     - name: Install Prince
-      run: set PATH=%PATH%;"${{ github.workspace }}\prince-15.1-win64\bin"
+      run: |
+        set PATH=%PATH%;"${{ github.workspace }}\prince-15.1-win64\bin"
+        prince
   # 自动部署GitPage
   gitpage:
     runs-on: ubuntu-latest
@@ -53,7 +55,7 @@ jobs:
     - name: Build PDF
       run: npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/intro --output pdf/NeigeItems-Wiki.pdf
     # 生成英文PDF
-    - name: Build PDF
+    - name: Build English PDF
       run: npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/en/intro --output pdf/NeigeItems-Wiki-English.pdf
     # 上传PDF
     - name: Capture Build Artifacts
