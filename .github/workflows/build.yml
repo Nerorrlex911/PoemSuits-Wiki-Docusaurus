@@ -4,6 +4,15 @@ on:
     branches:
       - main
 jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+      with:
+        persist-credentials: false
+    - name: Install Prince
+      run: set PATH=%PATH%;"${{ github.workspace }}\prince-15.1-win64\bin"
   # 自动部署GitPage
   gitpage:
     runs-on: ubuntu-latest
@@ -35,7 +44,7 @@ jobs:
         persist-credentials: false
     # 安装PDF转换前置Prince
     - name: Install Prince
-      run: set PATH=%PATH%;${{ github.workspace }}\prince-15.1-win64\bin
+      run: set PATH=%PATH%;"${{ github.workspace }}\prince-15.1-win64\bin"
     # 睡会儿, 等GitPage部署完成
     - name: Sleep for 120 seconds
       run: Start-Sleep -s 30
