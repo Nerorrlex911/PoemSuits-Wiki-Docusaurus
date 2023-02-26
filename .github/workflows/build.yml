@@ -13,8 +13,8 @@ jobs:
         persist-credentials: false
     - name: Install Prince
       run: |
-        set PATH=%PATH%;"${{ github.workspace }}\prince-15.1-win64\bin"
-        prince
+        set PATH=%PATH%;"${{ github.workspace }}\prince-15.1-win64\bin";
+        prince --help
   # 自动部署GitPage
   gitpage:
     runs-on: ubuntu-latest
