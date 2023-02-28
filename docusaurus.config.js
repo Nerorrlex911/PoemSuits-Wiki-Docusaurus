@@ -67,16 +67,16 @@ const config = {
         },
         hideOnScroll: false,
         items: [
-          // 搜索框
-          {
-            type: 'search',
-            position: 'left',
-          },
           {
             type: 'doc',
             docId: 'intro',
             position: 'left',
             label: '开始',
+          },
+          // 搜索框
+          {
+            type: 'search',
+            position: 'left',
           },
           {
             href: 'https://github.com/Neige7/NeigeItems-Kotlin',
@@ -153,7 +153,16 @@ const config = {
 
   themes:
     [
-      '@docusaurus/theme-search-algolia',
+      // '@docusaurus/theme-search-algolia',
+      [
+        require.resolve("@easyops-cn/docusaurus-search-local"),
+        {
+          hashed: true,
+          language: ["en", "zh"],
+          highlightSearchTermsOnTargetPage: true,
+          explicitSearchResultPath: true,
+        },
+      ],
     ],
 };
 
