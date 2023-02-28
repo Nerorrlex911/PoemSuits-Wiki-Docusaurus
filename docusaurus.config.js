@@ -138,33 +138,33 @@ const config = {
         respectPrefersColorScheme: true,
       },
       // 搜索引擎
-      // algolia: {
-      //   // The application ID provided by Algolia
-      //   appId: 'YOUR_APP_ID',
+      algolia: {
+        // The application ID provided by Algolia
+        appId: 'Z3B36QPFWP',
   
-      //   // Public API key: it is safe to commit it
-      //   apiKey: 'YOUR_SEARCH_API_KEY',
-      //   indexName: 'YOUR_INDEX_NAME',
+        // Public API key: it is safe to commit it
+        apiKey: 'dfdb9ac89747f6ecd8f6414f504bc8df',
+        indexName: 'neigeitems-wiki-usaurus',
   
-      //   // Optional: see doc section below
-      //   contextualSearch: true,
-      // },
+        // Optional: see doc section below
+        contextualSearch: true,
+      },
     }),
   plugins: [
     // require.resolve("@cmfcmf/docusaurus-search-local")
   ],
   themes:
     [
-      // '@docusaurus/theme-search-algolia',
-      [
-        require.resolve("@easyops-cn/docusaurus-search-local"),
-        {
-          hashed: true,
-          language: ["en", "zh"],
-          highlightSearchTermsOnTargetPage: true,
-          explicitSearchResultPath: true,
-        },
-      ],
+      '@docusaurus/theme-search-algolia',
+      // [
+      //   require.resolve("@easyops-cn/docusaurus-search-local"),
+      //   {
+      //     hashed: true,
+      //     language: ["en", "zh"],
+      //     highlightSearchTermsOnTargetPage: true,
+      //     explicitSearchResultPath: true,
+      //   },
+      // ],
     ],
 };
 
