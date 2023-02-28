@@ -155,7 +155,7 @@ const config = {
   ],
   themes:
     [
-      '@docusaurus/theme-search-algolia',
+      // '@docusaurus/theme-search-algolia',
       // [
       //   require.resolve("@easyops-cn/docusaurus-search-local"),
       //   {
