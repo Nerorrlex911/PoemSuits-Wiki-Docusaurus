@@ -67,6 +67,11 @@ const config = {
         },
         hideOnScroll: false,
         items: [
+          // 搜索框
+          {
+            type: 'search',
+            position: 'left',
+          },
           {
             type: 'doc',
             docId: 'intro',
@@ -132,19 +137,23 @@ const config = {
       colorMode: {
         respectPrefersColorScheme: true,
       },
+      // 搜索引擎
+      // algolia: {
+      //   // The application ID provided by Algolia
+      //   appId: 'YOUR_APP_ID',
+  
+      //   // Public API key: it is safe to commit it
+      //   apiKey: 'YOUR_SEARCH_API_KEY',
+      //   indexName: 'YOUR_INDEX_NAME',
+  
+      //   // Optional: see doc section below
+      //   contextualSearch: true,
+      // },
     }),
 
   themes:
     [
-      [
-        require.resolve("@easyops-cn/docusaurus-search-local"),
-        {
-          hashed: true,
-          language: ["en", "zh"],
-          highlightSearchTermsOnTargetPage: true,
-          explicitSearchResultPath: true,
-        },
-      ],
+      '@docusaurus/theme-search-algolia',
     ],
 };
 
