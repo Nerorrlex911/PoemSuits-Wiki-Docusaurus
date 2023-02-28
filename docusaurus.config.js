@@ -150,7 +150,9 @@ const config = {
       //   contextualSearch: true,
       // },
     }),
-
+  plugins: [
+    // require.resolve("@cmfcmf/docusaurus-search-local")
+  ],
   themes:
     [
       // '@docusaurus/theme-search-algolia',
