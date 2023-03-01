@@ -26,7 +26,6 @@
   }
 }
 
-@font-face {
-  font-family: 'SIMHEI';
-  src: url('/font/SIMHEI.TTF') format('truetype');
+body {
+  font-family: "NotoSansCJK", "Noto Color Emoji" !important;
 }
