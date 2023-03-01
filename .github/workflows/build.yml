@@ -68,7 +68,6 @@ jobs:
         tar zxf prince-14.2-linux-generic-x86_64.tar.gz
         cd prince-14.2-linux-generic-x86_64
         yes "" | sudo ./install.sh
-        setx PATH "%PATH%;${{ github.workspace }}\prince-15.1-win64\bin"
     # 睡会儿, 等GitPage部署完成
     - name: Sleep for 120 seconds
       run: sleep 120s
