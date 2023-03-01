@@ -97,7 +97,7 @@ const config = {
             title: '文档',
             items: [
               {
-                label: '正文',
+                label: '开始',
                 to: '/intro',
               },
             ],
