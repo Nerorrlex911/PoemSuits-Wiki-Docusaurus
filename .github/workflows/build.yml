@@ -143,4 +143,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: test
-      run: fc-list :lang=zh-cn
+      run: sudo docker run --rm -v ${{ github.workspace }}/pdf:/app/pdf iseason/docusaurus-to-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/intro
+    - name: Capture Build Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: Artifacts
+        path: pdf/
+        if-no-files-found: error
