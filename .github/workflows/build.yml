@@ -76,8 +76,8 @@ jobs:
     - name: Build PDF
       run: sudo docker run --rm -v ${{ github.workspace }}/pdf:/app/pdf iseason/docusaurus-to-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/intro --output pdf/NeigeItems-Wiki.pdf
     # 生成英文PDF
-    - name: Build English PDF
-      run: sudo docker run --rm -v ${{ github.workspace }}/pdf:/app/pdf iseason/docusaurus-to-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/en/intro --output pdf/NeigeItems-Wiki-English.pdf
+#     - name: Build English PDF
+#       run: sudo docker run --rm -v ${{ github.workspace }}/pdf:/app/pdf iseason/docusaurus-to-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/en/intro --output pdf/NeigeItems-Wiki-English.pdf
     # 上传PDF
     - name: Capture Build Artifacts
       uses: actions/upload-artifact@v3
@@ -126,12 +126,12 @@ jobs:
         asset_name: NeigeItems-Wiki.pdf
         asset_content_type: application/zip
     # 向release上传NeigeItems-Wiki-English.pdf
-    - name: Upload PDF file to Release
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create-new-release.outputs.upload_url }}
-        asset_path: NeigeItems-Wiki-English.pdf
-        asset_name: NeigeItems-Wiki-English.pdf
-        asset_content_type: application/zip
+#     - name: Upload PDF file to Release
+#       uses: actions/upload-release-asset@v1
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       with:
+#         upload_url: ${{ steps.create-new-release.outputs.upload_url }}
+#         asset_path: NeigeItems-Wiki-English.pdf
+#         asset_name: NeigeItems-Wiki-English.pdf
+#         asset_content_type: application/zip
