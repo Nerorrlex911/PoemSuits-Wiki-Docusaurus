@@ -8,7 +8,7 @@ NI Expansion提供了链式PAPI注册，示例如下：
 
 ```js
 /**
- * 服务器开启后同步执行 及 ni reload后异步执行
+ * 服务器开启后 及 ni reload后异步执行
  */
 function enable() {
     // 调用PAPI变量注册
