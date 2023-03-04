@@ -62,26 +62,22 @@ jobs:
       with:
         persist-credentials: false
     # 安装PDF转换前置Prince
-    - name: Install Prince
-      run: |
-        curl https://www.princexml.com/download/prince-14.2-linux-generic-x86_64.tar.gz -O
-        tar zxf prince-14.2-linux-generic-x86_64.tar.gz
-        cd prince-14.2-linux-generic-x86_64
-        yes "" | sudo ./install.sh
+#     - name: Install Prince
+#       run: |
+#         curl https://www.princexml.com/download/prince-14.2-linux-generic-x86_64.tar.gz -O
+#         tar zxf prince-14.2-linux-generic-x86_64.tar.gz
+#         cd prince-14.2-linux-generic-x86_64
+#         yes "" | sudo ./install.sh
     # 睡会儿, 等GitPage部署完成
     - name: Sleep for 120 seconds
       run: sleep 120s
       shell: bash
     # 生成PDF
     - name: Build PDF
-      run: |
-        npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/intro --output pdf/NeigeItems-Wiki.pdf
-        prince --no-warn-css --style=style.css --input-list=./pdf/neige7.github.io-NeigeItems-Wiki-Docusaurus-intro.txt -o pdf/NeigeItems-Wiki.pdf
+      run: sudo docker run --rm -v ${{ github.workspace }}/pdf:/app/pdf iseason/docusaurus-to-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/intro --output pdf/NeigeItems-Wiki.pdf
     # 生成英文PDF
     - name: Build English PDF
-      run: |
-        npx docusaurus-prince-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/en/intro --output pdf/NeigeItems-Wiki-English.pdf
-        prince --no-warn-css --style=style.css --input-list=./pdf/neige7.github.io-NeigeItems-Wiki-Docusaurus-en-intro.txt -o pdf/NeigeItems-Wiki-English.pdf
+      run: sudo docker run --rm -v ${{ github.workspace }}/pdf:/app/pdf iseason/docusaurus-to-pdf -u https://neige7.github.io/NeigeItems-Wiki-Docusaurus/en/intro --output pdf/NeigeItems-Wiki-English.pdf
     # 上传PDF
     - name: Capture Build Artifacts
       uses: actions/upload-artifact@v3
