@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 16进制颜色
+# RGB颜色
 
 ```
 <#FFFFFF>
