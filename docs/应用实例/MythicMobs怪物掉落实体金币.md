@@ -40,25 +40,28 @@ function enable() {
 }
 
 function getItemName(itemStack) {
-    const ItemUtils = Packages.pers.neige.neigeitems.utils.ItemUtils
-    const HookerManager = Packages.pers.neige.neigeitems.manager.HookerManager
-
+    // 检测NI物品
     const itemInfo = ItemUtils.isNiItem(itemStack, true)
     if (itemInfo == null) return null
 
+    // 获取节点信息
     const data = itemInfo.data
+
+    // 进行节点判断
     if (data == null) return null
-
     if (data["金币数量"] != null) {
-        return HookerManager.parseItemPlaceholder(itemStack, ItemUtils.getItemName(itemStack))
+        return HookerManager.getParsedName(itemStack)
     }
-
     return null
 }
 
 function loadItem(item) {
-    item.setCustomName(getItemName(item.getItemStack()))
-    item.setCustomNameVisible(true)
+    // 设置物品显示名
+    const itemName = getItemName(item.getItemStack())
+    if (itemName != null) {
+        item.setCustomName(getItemName(item.getItemStack()))
+        item.setCustomNameVisible(true)
+    }
 }
 ```
 
@@ -69,10 +72,13 @@ plugins\NeigeItems\ItemActions\金币.yml
   pick:
     cooldown: 0
     consume:
-      amount: 1
+      condition: |-
+        global.amount = itemStack.amount + ""
+        true
+      amount: <amount>
     sync:
-    - 'giveMoney: <data::金币数量>'
-    - 'tell: §e[NI] §6恭喜你获得了 <data::金币数量> 金币'
+    - 'giveMoney: <fastcalc::<data::金币数量>*<amount>>'
+    - 'tell: §e[NI] §6恭喜你获得了 <fastcalc::<data::金币数量>*<amount>> 金币'
 ```
 
 plugins\NeigeItems\Items\金币.yml
