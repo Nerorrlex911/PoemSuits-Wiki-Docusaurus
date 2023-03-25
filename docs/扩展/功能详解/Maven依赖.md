@@ -94,4 +94,24 @@ function enable() {
 }
 ```
 
-看不懂说明你有问题
+需要注意的是, 这种加载方式不会自动加载依赖的依赖
+
+比如`jackson-databind`前置需求`jackson-core`和`jackson-annotations`
+
+错误的加载方式:
+
+```js
+function enable() {
+    new MavenDependency("com.fasterxml.jackson.core", "jackson-databind", "2.14.2").load()
+}
+```
+
+正确的加载方式:
+
+```js
+function enable() {
+    new MavenDependency("com.fasterxml.jackson.core", "jackson-core", "2.14.2").load()
+    new MavenDependency("com.fasterxml.jackson.core", "jackson-annotations", "2.14.2").load()
+    new MavenDependency("com.fasterxml.jackson.core", "jackson-databind", "2.14.2").load()
+}
+```
