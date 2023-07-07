@@ -1,8 +1,8 @@
 ---
-sidebar_position: 9
+sidebar_position: 8
 ---
 
-# 测试
+# 查看NBT
 
 > 全部命令需要OP权限/后台执行, []为必填, ()为选填
 
