@@ -9,7 +9,7 @@ const config = {
   title: 'NeigeItems',
   tagline: '万能随机物品库',
   // 网站图标
-  favicon: 'img/NeigeItems-无文字.png',
+  favicon: 'img/NI-叠影.png',
 
   // Set the production url of your site here
   url: 'https://neige7.github.io',
@@ -63,7 +63,7 @@ const config = {
         title: 'NeigeItems',
         logo: {
           alt: 'Logo',
-          src: 'img/NeigeItems-无文字.png',
+          src: 'img/NI-叠影.png',
         },
         hideOnScroll: false,
         items: [
