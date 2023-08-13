@@ -84,7 +84,7 @@ sidebar_position: 2
 
         * `id` 类型`String`, 代表物品的NeigeItems物品ID
 
-        * `itemTag` 类型`ItemTag`, 代表物品的NBT
+        * `itemTag` 类型`NbtCompound`, 代表物品的NBT
 
         * `data` 类型`HashMap<String, String>`, 代表物品的节点信息
 
@@ -168,10 +168,10 @@ sidebar_position: 2
 
         * `itemStack` 类型`ItemStack`, 代表物品本身
 
-        * `itemTag` 类型`ItemTag`, 代表物品的NBT
+        * `itemTag` 类型`NbtCompound`, 代表物品的NBT
 
         使用eval类型需要一定的javascript基础, 以下是示例物品与简单例子:
 
         ![](_images/示例物品.png)
 
-        `%ni_nbt_eval_hand_itemTag.asString()%`将返回字符串化的物品NBT, 对于示例物品, 结果返回`{NeigeItems:{id:"test1",hashCode:438309659,data:'{"test1":"4","tt":"5"}'},display:{Lore:['{"extra":[{"text":"4"}],"text":""}','{"extra":[{"text":"Neige"}],"text":""}']}}`
+        `%ni_nbt_eval_hand_itemTag.getAsString()%`将返回字符串化的物品NBT, 对于示例物品, 结果返回`{NeigeItems:{id:"test1",hashCode:438309659,data:'{"test1":"4","tt":"5"}'},display:{Lore:['{"extra":[{"text":"4"}],"text":""}','{"extra":[{"text":"Neige"}],"text":""}']}}`
