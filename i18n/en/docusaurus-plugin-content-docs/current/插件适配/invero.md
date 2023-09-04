@@ -24,7 +24,7 @@ items:
 
 你看不懂我只能说你是个傻逼
 
-其中的`source: ni`也可以写成`source: neigeitems`，没区别
+其中的`source: ni`也可以写成`source: PoemSuits`，没区别
 
 `value: `后面跟物品ID，也可以加指向数据，比如`value: ExampleItem {"test1":"test1","test2":"test2"}`
 

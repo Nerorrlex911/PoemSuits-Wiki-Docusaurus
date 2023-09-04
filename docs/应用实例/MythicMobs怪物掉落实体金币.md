@@ -10,7 +10,7 @@ sidebar_position: 2
 
 需配置以下文件：
 
-plugins\NeigeItems\Expansions\金币.js
+plugins\PoemSuits\Expansions\金币.js
 
 ```js
 function enable() {
@@ -65,7 +65,7 @@ function loadItem(item) {
 }
 ```
 
-plugins\NeigeItems\ItemActions\金币.yml
+plugins\PoemSuits\ItemActions\金币.yml
 
 ```yaml
 金币:
@@ -81,7 +81,7 @@ plugins\NeigeItems\ItemActions\金币.yml
     - 'tell: §e[NI] §6恭喜你获得了 <fastcalc::<data::金币数量>*<amount>> 金币'
 ```
 
-plugins\NeigeItems\Items\金币.yml
+plugins\PoemSuits\Items\金币.yml
 
 ```yaml
 金币:
@@ -98,21 +98,21 @@ plugins\MythicMobs\Mobs\金币.yml
 金币测试1:
   Type: ZOMBIE
   Health: 1
-  NeigeItems:
+  PoemSuits:
     Drops:
     # 金币 掉落1个 100%概率掉落
     - 金币 1 1
 金币测试2:
   Type: ZOMBIE
   Health: 1
-  NeigeItems:
+  PoemSuits:
     Drops:
     # 金币 掉落1个 100%概率掉落 每个物品都重复随机(该配置用不到这个, 不用理解) 将金币数量更改为1000
     - 金币 1 1 true {"金币数量":"1000"}
 金币测试3:
   Type: ZOMBIE
   Health: 1
-  NeigeItems:
+  PoemSuits:
     Drops:
     # 金币 掉落1个 50%概率掉落
     - 金币 1 0.5

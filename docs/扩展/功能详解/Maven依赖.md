@@ -69,7 +69,7 @@ function enable() {
     /**
      * @param 文件路径
      */
-    new LocalDependency("plugins\\NeigeItems\\libs\\com.expression.parser-3.3.0.jar").load()
+    new LocalDependency("plugins\\PoemSuits\\libs\\com.expression.parser-3.3.0.jar").load()
 }
 ```
 
@@ -90,7 +90,7 @@ function enable() {
         "2.14.2"
     ).load()
 
-    new LocalDependency("plugins\\NeigeItems\\libs\\com.expression.parser-3.3.0.jar").load()
+    new LocalDependency("plugins\\PoemSuits\\libs\\com.expression.parser-3.3.0.jar").load()
 }
 ```
 

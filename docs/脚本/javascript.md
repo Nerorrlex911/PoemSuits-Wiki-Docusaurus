@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## 对象与函数
 
-NeigeItems 的 JavaScript 节点目前提供以下对象
+PoemSuits 的 JavaScript 节点目前提供以下对象
 
 * `this.player` 即 玩家本身
 * `arguments` 你调用时传入的参数，以数组形式出现
@@ -18,4 +18,4 @@ NeigeItems 的 JavaScript 节点目前提供以下对象
 
 ## 路径
 
-所有脚本文件应存放于`plugins/NeigeItems/Scripts`文件夹
+所有脚本文件应存放于`plugins/PoemSuits/Scripts`文件夹

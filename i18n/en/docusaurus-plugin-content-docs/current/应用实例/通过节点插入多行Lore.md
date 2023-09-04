@@ -114,7 +114,7 @@ sidebar_position: 3
 
 > 提问: 我花一年时间理解了你上面那个屌问题。这种狗东西你怎么写出来的，脑测吗？
 
-> 回答：请善用debug。将`plugin/NeigeItems/config.yml`中的`Main.Debug`设置为true即可开启debug模式。
+> 回答：请善用debug。将`plugin/PoemSuits/config.yml`中的`Main.Debug`设置为true即可开启debug模式。
 
 开启后效果见下图
 

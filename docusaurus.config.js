@@ -6,21 +6,21 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'NeigeItems',
-  tagline: '万能随机物品库',
+  title: 'PoemSuits',
+  tagline: '套装插件',
   // 网站图标
   favicon: 'img/NI-叠影.png',
 
   // Set the production url of your site here
-  url: 'https://neige7.github.io',
+  url: 'https://nerorrlex911.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/NeigeItems-Wiki-Docusaurus/',
+  baseUrl: '/PoemSuits-Wiki-Docusaurus/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'neige7', // Usually your GitHub org/user name.
-  projectName: 'NeigeItems-Wiki-Docusaurus', // Usually your repo name.
+  organizationName: 'Nerorrlex911', // Usually your GitHub org/user name.
+  projectName: 'PoemSuits-Wiki-Docusaurus', // Usually your repo name.
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
@@ -44,7 +44,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           editUrl:
-            'https://github.com/Neige7/NeigeItems-Wiki-Docusaurus/blob/main'
+            'https://github.com/Nerorrlex911/PoemSuits-Wiki-Docusaurus/blob/main'
         },
         blog: false,
         theme: {
@@ -60,7 +60,7 @@ const config = {
       image: 'img/docusaurus-social-card.jpg',
       // 上边栏
       navbar: {
-        title: 'NeigeItems',
+        title: 'PoemSuits',
         logo: {
           alt: 'Logo',
           src: 'img/NI-叠影.png',
@@ -79,7 +79,7 @@ const config = {
             position: 'left',
           },
           {
-            href: 'https://github.com/Neige7/NeigeItems-Kotlin',
+            href: 'https://github.com/Nerorrlex911/PoemSuits',
             label: 'GitHub',
             position: 'right',
           },
@@ -120,13 +120,13 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/Neige7/NeigeItems-Kotlin',
+                href: 'https://github.com/Nerorrlex911/PoemSuits',
               },
             ],
           },
         ],
         // 底部版权信息
-        copyright: `Copyright © ${new Date().getFullYear()} Neige, All Rights Reserved.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Zima_Blue, All Rights Reserved.`,
       },
       // 深浅主题
       prism: {
@@ -144,7 +144,7 @@ const config = {
   
         // Public API key: it is safe to commit it
         apiKey: 'dfdb9ac89747f6ecd8f6414f504bc8df',
-        indexName: 'neigeitems-wiki-usaurus',
+        indexName: 'PoemSuits-wiki-usaurus',
   
         // Optional: see doc section below
         contextualSearch: true,

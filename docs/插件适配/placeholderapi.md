@@ -82,7 +82,7 @@ sidebar_position: 2
 
         * `itemStack` 类型`ItemStack`, 代表物品本身
 
-        * `id` 类型`String`, 代表物品的NeigeItems物品ID
+        * `id` 类型`String`, 代表物品的PoemSuits物品ID
 
         * `itemTag` 类型`NbtCompound`, 代表物品的NBT
 
@@ -94,7 +94,7 @@ sidebar_position: 2
 
         `%ni_data_eval_hand_data.test1 > 3 && data.test1 < 5%`检测test1节点的值大于3且小于5, 对于示例物品, 结果返回`true`
 
-        `%ni_data_eval_hand_id.contains("test")%`检测物品的NeigeItems物品ID是否包含`test`这段字符, 对于示例物品, 结果返回`true`
+        `%ni_data_eval_hand_id.contains("test")%`检测物品的PoemSuits物品ID是否包含`test`这段字符, 对于示例物品, 结果返回`true`
 
 ## 物品NBT检测
 
@@ -136,7 +136,7 @@ sidebar_position: 2
 
         ![](_images/示例物品.png)
 
-        可以看到示例物品的`NeigeItems.id`NBT的值为`test1`, 我手持物品时, `%ni_nbt_get_hand_NeigeItems.id%`的返回值即为`test1`
+        可以看到示例物品的`PoemSuits.id`NBT的值为`test1`, 我手持物品时, `%ni_nbt_get_hand_PoemSuits.id%`的返回值即为`test1`
 
         示例物品不存在`test`这条NBT, 我手持物品时, `%ni_nbt_get_hand_test%`将返回一个空字符串
 
@@ -146,7 +146,7 @@ sidebar_position: 2
 
         ![](_images/示例物品.png)
 
-        可以看到示例物品存在`NeigeItems.id`这条NBT, 我手持物品时, `%ni_nbt_has_hand_NeigeItems.id%`的返回值即为`true`
+        可以看到示例物品存在`PoemSuits.id`这条NBT, 我手持物品时, `%ni_nbt_has_hand_PoemSuits.id%`的返回值即为`true`
 
         示例物品不存在`test`这条NBT, 我手持物品时, `%ni_nbt_has_hand_test%`的返回值即为`false`
 
@@ -156,7 +156,7 @@ sidebar_position: 2
 
         ![](_images/示例物品.png)
 
-        可以看到示例物品的`NeigeItems.id`NBT的值为`test1`, 因此, 我手持物品时, `%ni_nbt_check_hand_{"NeigeItems.id":"test1"}%`的返回值为`true`, `%ni_nbt_check_hand_{"NeigeItems.id":"test2"}%`的返回值为`false`(不匹配)
+        可以看到示例物品的`PoemSuits.id`NBT的值为`test1`, 因此, 我手持物品时, `%ni_nbt_check_hand_{"PoemSuits.id":"test1"}%`的返回值为`true`, `%ni_nbt_check_hand_{"PoemSuits.id":"test2"}%`的返回值为`false`(不匹配)
 
         示例物品不存在`test`这条NBT, 我手持物品时, `%ni_nbt_check_hand_{"test":"4"}%`的返回值为`false`(不匹配)
 
@@ -174,4 +174,4 @@ sidebar_position: 2
 
         ![](_images/示例物品.png)
 
-        `%ni_nbt_eval_hand_itemTag.getAsString()%`将返回字符串化的物品NBT, 对于示例物品, 结果返回`{NeigeItems:{id:"test1",hashCode:438309659,data:'{"test1":"4","tt":"5"}'},display:{Lore:['{"extra":[{"text":"4"}],"text":""}','{"extra":[{"text":"Neige"}],"text":""}']}}`
+        `%ni_nbt_eval_hand_itemTag.getAsString()%`将返回字符串化的物品NBT, 对于示例物品, 结果返回`{PoemSuits:{id:"test1",hashCode:438309659,data:'{"test1":"4","tt":"5"}'},display:{Lore:['{"extra":[{"text":"4"}],"text":""}','{"extra":[{"text":"Neige"}],"text":""}']}}`
