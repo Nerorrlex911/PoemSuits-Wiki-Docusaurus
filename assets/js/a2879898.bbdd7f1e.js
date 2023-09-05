@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkneige_items_wiki_docusaurus=self.webpackChunkneige_items_wiki_docusaurus||[]).push([[7200],{7085:e=>{e.exports=JSON.parse('{"name":"docusaurus-theme-search-algolia","id":"default"}')}}]);
