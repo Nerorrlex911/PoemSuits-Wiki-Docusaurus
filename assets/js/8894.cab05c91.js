@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkneige_items_wiki_docusaurus=self.webpackChunkneige_items_wiki_docusaurus||[]).push([[8894],{8894:(e,s,u)=>{u.r(s)}}]);
