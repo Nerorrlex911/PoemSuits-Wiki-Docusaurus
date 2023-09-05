@@ -8,7 +8,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        ni save能告诉你一切.
+        示例配置能告诉你一切.
       </>
     ),
   },
@@ -17,12 +17,12 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        看完文档学不会怎么用说明你是个傻逼.
+        看完文档学不会怎么用说明你不适合使用本插件.
       </>
     ),
   },
   {
-    title: '功能强大',
+    title: '功能一般',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>

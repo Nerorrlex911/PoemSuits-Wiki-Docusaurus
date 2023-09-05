@@ -107,7 +107,7 @@ const config = {
             items: [
               {
                 label: 'QQ群',
-                href: 'https://jq.qq.com/?_wv=1027&k=QKurhX6E',
+                href: 'http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=-Jt7jabDIxFNwurnYczFYDtB5THvLtYF&authKey=DHfOhW3D09FwqEd7dckd5Atj%2F%2BrVTydctbl6eAGMDMtLHjSMXXsGCGcgJmrYlCsg&noverify=0&group_code=732572379',
               },
             ],
           },
@@ -116,7 +116,7 @@ const config = {
             items: [
               {
                 label: 'MCBBS',
-                href: 'https://www.mcbbs.net/thread-1364195-1-1.html',
+                href: 'https://www.mcbbs.net/thread-1435169-1-1.html',
               },
               {
                 label: 'GitHub',
