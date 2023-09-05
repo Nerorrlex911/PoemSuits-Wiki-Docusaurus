@@ -9,7 +9,7 @@ const config = {
   title: 'PoemSuits',
   tagline: '套装插件',
   // 网站图标
-  favicon: 'img/NI-叠影.png',
+  favicon: 'img/PoemSuits-icon.png',
 
   // Set the production url of your site here
   url: 'https://nerorrlex911.github.io',
@@ -63,7 +63,7 @@ const config = {
         title: 'PoemSuits',
         logo: {
           alt: 'Logo',
-          src: 'img/NI-叠影.png',
+          src: 'img/PoemSuits-icon.png',
         },
         hideOnScroll: false,
         items: [
